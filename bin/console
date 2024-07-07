@@ -6,4 +6,5 @@ require 'blueprinter'
 require 'json'
 
 require 'irb'
+
 IRB.start(__FILE__)

@@ -26,7 +26,6 @@ module Blueprinter
   class Base
     extend Reflection
     extend Rendering
-    extend Finalize
 
     class << self
       # Specify a field or method name used as an identifier. Usually, this is
@@ -276,7 +275,6 @@ module Blueprinter
       #   end
       #
       # @return [Array<Symbol>] an array of view names.
-
       def include_views(*view_names)
         current_view.include_views(view_names)
       end
@@ -319,7 +317,6 @@ module Blueprinter
       #   => [:name, :company, :contact, :birthday, :joining_anniversary]
       #
       # @return [Array<Symbol>] an array of field names
-
       def excludes(*field_names)
         current_view.exclude_fields(field_names)
       end
@@ -369,10 +366,6 @@ module Blueprinter
 
       def view_collection
         @_view_collection ||= ViewCollection.new
-      end
-
-      def finalize!
-        view_collection.finalize!
       end
 
       private
